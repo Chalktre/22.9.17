@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text">
+		<button class="save">save</button>
+		<button class="get">get</button>
+		<button class="delete">delete</button>
+		<button class="delA">delete all</button>
+		
+		<script>
+			var ipt = document.querySelector("input")
+			var save = document.querySelector(".save")
+			var get = document.querySelector(".get")
+			var del = document.querySelector(".delete")
+			var delA = document.querySelector(".delA")
+			
+			save.addEventListener('click', function(){
+				var val = ipt.value;
+				sessionStorage.setItem('uname', val);
+			})
+			
+			get.addEventListener('click', function(){
+				console.log(sessionStorage.getItem('uname'));
+			})
+			
+			del.addEventListener('click', function(){
+				sessionStorage.removeItem('uname')
+			})
+			
+			delA.addEventListener('click', function(){
+				sessionStorage.clear()
+			})
+			//sessionStorage的生命周期到浏览器关闭清除，而localStorage的生命周期是无限，除非被手动删除
+		</script>
+	</body>
+</html>
